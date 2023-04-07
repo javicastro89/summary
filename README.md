@@ -12,7 +12,7 @@ Hello! My name is Javier and in this repository we are going to find a service t
 
 ![summary-service](https://user-images.githubusercontent.com/69270095/230511544-a01b31ac-dc1e-4180-9c17-fe91e323f082.png)
 
-We have a lambda that is triggered by a S3 bucket, so when we upload a file to the bucket this trigger the lambda. The lambda process the info, send it for mail using SES and save some info about the summary in a Dynamodb table. 
+We have a lambda that is triggered by an S3 bucket, so when we upload a file to the bucket the lambda is called. The lambda process the info, send it for mail using SES and save some info about the summary in a Dynamodb table. 
 
 ## How to test service
 
