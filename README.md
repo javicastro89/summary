@@ -16,5 +16,11 @@ We have a lambda that is triggered for S3 bucket, so when we upload a file to th
 
 ## How to test service
 
-Well this services is deployed in my personal account of AWS, so if you want to test it you have to contact me, because if I make this publicly available, it could generate costs for me.
+To test the service you have to create a S3 bucket and set a trigger in the bucket.
+
+Then you have to deploy this lambda who is triggered by the bucket
+
+Then you have to create a dynamo table, add the permissions with dynamodb:putItem to the lambda and pass the the table name to the lambda by the environment value TABLE_NAME
+
+For the last you have to configure SES and pass the port, SMTP URL, username and pass6 through the environment variables PORT, USERNAME and PASSWORD.
 
