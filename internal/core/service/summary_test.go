@@ -74,7 +74,11 @@ var sliceUser = []domain.User{
 func TestService_ProcessSummary(t *testing.T) {
 	mkDispatch := new(mockDispatch)
 	mkDispatch.On("DispatchMessage", mock.AnythingOfType("domain.BalanceUser")).Return(nil)
-	srv := NewService(mkDispatch)
+
+	mkRepository := new(mockRepository)
+	mkRepository.On("SaveItem", mock.AnythingOfType("domain.BalanceUser")).Return(nil)
+
+	srv := NewService(mkDispatch, mkRepository)
 
 	err := srv.ProcessSummary(context.Background(), sliceUser)
 	assert.NoError(t, err)
@@ -86,6 +90,15 @@ type mockDispatch struct {
 }
 
 func (m *mockDispatch) DispatchMessage(_ context.Context, balanceUser domain.BalanceUser) error {
+	args := m.Called(balanceUser)
+	return args.Error(0)
+}
+
+type mockRepository struct {
+	mock.Mock
+}
+
+func (m *mockRepository) SaveItem(_ context.Context, balanceUser domain.BalanceUser) error {
 	args := m.Called(balanceUser)
 	return args.Error(0)
 }
