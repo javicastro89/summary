@@ -22,5 +22,5 @@ Then you have to deploy this lambda who is triggered by the bucket
 
 Then you have to create a dynamo table, add the permissions with dynamodb:putItem to the lambda and pass the the table name to the lambda by the environment value TABLE_NAME
 
-For the last you have to configure SES and pass the port, SMTP URL, username and pass6 through the environment variables PORT, USERNAME and PASSWORD.
+For the last you have to configure SES and pass the port, the host, username and password through the environment variables PORT, HOST, USERNAME and PASSWORD.
 
