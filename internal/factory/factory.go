@@ -51,7 +51,7 @@ func (f *Factory) Run() error {
 	return nil
 }
 
-// d := gomail.NewDialer("email-smtp.us-east-1.amazonaws.com", 587, "AKIAZSNEU34S7MJPUETR", "BGAgBv/by3FblCpB2RaXlcuocjQXF7s8QqaRhvVVGs3A")
+
 func (f *Factory) setEmailService() error {
 	port, err := strconv.Atoi(os.Getenv("PORT"))
 	if err != nil {
